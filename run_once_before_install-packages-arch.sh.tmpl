@@ -10,7 +10,7 @@ if ! command -v paru &> /dev/null; then
     sudo pacman -S --needed --noconfirm git base-devel
     mkdir -p ~/tmp/
     git clone https://aur.archlinux.org/paru.git ~/tmp/paru
-    cd /tmp/paru && makepkg -si --noconfirm
+    cd ~/tmp/paru && makepkg -si --noconfirm
 fi
 
 # Core packages

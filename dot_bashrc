@@ -1,0 +1,27 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+#[alias]
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias cat=bat
+alias la='ls -la --color=auto'
+
+alias p='paru -S'
+alias pu='paru -Syu'
+
+alias c=chezmoi
+
+
+PS1='[\u@\h \W]\$ '
+
+#[eval]
+eval -- "$(/usr/bin/starship init bash --print-full-init)"
+eval -- "$(ssh-agent && ssh-add ~/.ssh/odouhou)"
+eval "$(starship init bash)"
+eval "$(starship init bash --print-full-init)"
+export PATH="$HOME/.local/bin:$PATH"

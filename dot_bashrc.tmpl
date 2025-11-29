@@ -1,0 +1,47 @@
+#
+# ~/.bashrc
+#
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+{{- if eq .chezmoi.osRelease.id "arch" }}
+
+# Arch aliases
+alias update='paru -Syu'
+alias install='paru -S'
+alias remove='paru -Rns'
+alias search='paru -Ss'
+alias cleanup='paru -Sc && paru -Rns $(paru -Qtdq)'
+{{- else if or (eq .chezmoi.osRelease.id "debian") (eq .chezmoi.osRelease.id "ubuntu") }}
+
+# Debian/Ubuntu aliases
+alias update='sudo apt update && sudo apt upgrade'
+alias install='sudo apt install'
+alias remove='sudo apt remove'
+alias search='apt search'
+alias cleanup='sudo apt autoremove && sudo apt autoclean'
+{{- end }}
+
+#[alias]
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias cat=bat
+alias la='ls -la --color=auto'
+
+alias yay=paru
+alias p='paru -S'
+alias pu='paru -Syu'
+
+alias c=chezmoi
+alias v=nvim
+alias vim=nvim
+alias vi=nvim
+
+#[eval]
+eval "$(starship init bash --print-full-init)"
+
+if ! pgrep -u "$USER" ssh-agent >/dev/null; then
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/odouhou 2>/dev/null
+fi
+
+export PATH="$HOME/.local/bin:$PATH"

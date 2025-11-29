@@ -1,0 +1,29 @@
+{{- if or (eq .chezmoi.osRelease.id "debian") (eq .chezmoi.osRelease.id "ubuntu") -}}
+#!/bin/bash
+set -euo pipefail
+
+echo "🔶 Debian/Ubuntu - Installing packages with apt"
+
+sudo apt update
+
+# Core packages
+sudo apt install -y \
+    neovim \
+    tmux \
+    git \
+    zsh \
+    fzf \
+    ripgrep \
+    bat \
+    build-essential \
+    curl \
+    wget
+
+# Debian heeft bat als batcat
+if ! command -v bat &> /dev/null; then
+    mkdir -p ~/.local/bin
+    ln -sf /usr/bin/batcat ~/.local/bin/bat
+fi
+
+echo "✅ Debian packages installed"
+{{- end }}

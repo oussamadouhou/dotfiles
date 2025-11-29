@@ -1,0 +1,40 @@
+{{- if eq .chezmoi.osRelease.id "arch" -}}
+#!/bin/bash
+set -euo pipefail
+
+echo "🔷 Arch Linux - Installing packages with paru"
+
+# Installeer paru als die er niet is
+if ! command -v paru &> /dev/null; then
+    echo "Installing paru..."
+    sudo pacman -S --needed git base-devel
+    mkdir -p ~/tmp/
+    git clone https://aur.archlinux.org/paru.git ~/tmp/paru
+    cd /tmp/paru && makepkg -si --noconfirm
+fi
+
+# Core packages
+paru -S --needed --noconfirm \
+    curl \
+    bitwarden-cli \
+    neovim \
+    tmux \
+    git \
+    zsh \
+    fzf \
+    ripgrep \
+    bat \
+    eza \
+    starship
+
+# Arch-specifieke packages
+paru -S --needed --noconfirm \
+    hyprland \
+    waybar \
+    ghostty \
+    elephant \
+    elephant-desktopapplications \
+    walker
+
+echo "✅ Arch packages installed"
+{{- end }}

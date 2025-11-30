@@ -60,4 +60,6 @@ elif [ -z "$SSH_AUTH_SOCK" ] || ! ssh-add -l >/dev/null 2>&1; then
     agent_start
 fi
 
+eval "$(fzf --bash)"
+
 export PATH="$HOME/.local/bin:$PATH"

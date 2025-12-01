@@ -12,6 +12,7 @@ alias installn='paru -S --needed --noconfirm'
 alias remove='paru -Rns'
 alias search='paru -Ss'
 alias cleanup='paru -Sc && paru -Rns $(paru -Qtdq)'
+alias devpod=devpod-cli
 {{- else if or (eq .chezmoi.osRelease.id "debian") (eq .chezmoi.osRelease.id "ubuntu") }}
 
 # Debian/Ubuntu aliases

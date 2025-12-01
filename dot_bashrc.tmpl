@@ -8,6 +8,7 @@
 # Arch aliases
 alias update='paru -Syu'
 alias install='paru -S'
+alias installn='paru -S --needed --noconfirm'
 alias remove='paru -Rns'
 alias search='paru -Ss'
 alias cleanup='paru -Sc && paru -Rns $(paru -Qtdq)'

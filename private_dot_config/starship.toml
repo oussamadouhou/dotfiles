@@ -150,24 +150,6 @@ format = '[[  $time ](fg:crust bg:lavender)]($style)'
 [line_break]
 disabled = false
 
-[battery]
-format = '[ $symbol$percentage ]($style)'
-full_symbol = "󰁹 "
-charging_symbol = "󰂄 "
-discharging_symbol = "󰂃 "
-
-[[battery.display]]
-threshold = 20
-style = "bold #f38ba8"  # Catppuccin Red
-
-[[battery.display]]
-threshold = 50
-style = "bold #fab387"  # Catppuccin Peach
-
-[[battery.display]]
-threshold = 100
-style = "bold #a6e3a1"  # Catppuccin Green
-
 [character]
 disabled = false
 success_symbol = '[❯](bold fg:green)'

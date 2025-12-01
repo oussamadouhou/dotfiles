@@ -2,13 +2,16 @@
 #!/bin/bash
 set -euo pipefail
 
+paru_pkg=$HOME/tmp/paru
+
 echo "🔷 Arch Linux - Installing packages with paru"
 
 # Installeer paru als die er niet is
 if ! command -v paru &> /dev/null; then
     echo "Installing paru..."
     sudo pacman -S --needed --noconfirm git base-devel
-    mkdir -p ~/tmp/
+    mkdir -p $HOME/tmp/
+    rm -rf $paru_pkg
     git clone https://aur.archlinux.org/paru.git ~/tmp/paru
     cd ~/tmp/paru && makepkg -si --noconfirm
 fi

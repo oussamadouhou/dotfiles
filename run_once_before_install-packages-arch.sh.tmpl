@@ -8,8 +8,11 @@ echo "🔷 Arch Linux - Installing packages with paru"
 if ! command -v paru &> /dev/null; then
     echo "Installing paru..."
     sudo pacman -S --needed --noconfirm git base-devel
-    mkdir -p ~/tmp/
-    git clone https://aur.archlinux.org/paru.git ~/tmp/paru
+    echo
+    echo
+    echo "########  Creating tmp folder"
+    mkdir -p $HOME/tmp/
+    git clone https://aur.archlinux.org/paru.git $HOME/tmp/paru
     cd ~/tmp/paru && makepkg -si --noconfirm
 fi
 

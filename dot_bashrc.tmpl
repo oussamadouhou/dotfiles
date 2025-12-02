@@ -3,6 +3,9 @@
 #
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+
+. $HOME/.config/chezmoi/env
+
 {{- if eq .chezmoi.osRelease.id "arch" }}
 
 # Arch aliases

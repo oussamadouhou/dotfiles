@@ -5,7 +5,7 @@
 [[ $- != *i* ]] && return
 
 . $HOME/.config/chezmoi/env
-
+export SSH_AUTH_SOCK=$HOME/.bitwarden-ssh-agent.sock
 {{- if eq .chezmoi.osRelease.id "arch" }}
 
 # Arch aliases

@@ -45,6 +45,7 @@ alias vf="fzf --bind 'enter:become(nvim {})'"
 #[eval]
 eval "$(starship init bash --print-full-init)"
 eval "$(fzf --bash)"
+eval "${zoxide init bash}"
 
 #[source]
 source /usr/share/fzf/completion.bash
